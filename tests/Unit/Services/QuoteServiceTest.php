@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Services;
 
-use App\Interfaces\CacheInterface;
+use App\Services\CacheService;
 use App\Services\CelebrityQuotes\CelebrityQuotesManager;
 use App\Services\QuoteService;
 use Closure;
@@ -31,7 +31,7 @@ class QuoteServiceTest extends TestCase
             ->method('getQuote')
             ->willReturnOnConsecutiveCalls(...$givenQuotes);
 
-        $cacheMock = $this->getMockBuilder(CacheInterface::class)
+        $cacheMock = $this->getMockBuilder(CacheService::class)
             ->getMock();
 
         $cacheMock
@@ -59,7 +59,7 @@ class QuoteServiceTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $cacheMock = $this->getMockBuilder(CacheInterface::class)
+        $cacheMock = $this->getMockBuilder(CacheService::class)
             ->getMock();
 
         $cacheMock
@@ -95,7 +95,7 @@ class QuoteServiceTest extends TestCase
             ->method('getQuote')
             ->willReturnOnConsecutiveCalls(...$givenQuotes);
 
-        $cacheMock = $this->getMockBuilder(CacheInterface::class)
+        $cacheMock = $this->getMockBuilder(CacheService::class)
             ->getMock();
 
         $cacheMock

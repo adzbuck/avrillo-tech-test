@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use App\Interfaces\CacheInterface;
 use App\Services\CelebrityQuotes\CelebrityQuotesManager;
 use Illuminate\Support\Collection;
 
@@ -12,7 +11,7 @@ class QuoteService
 
     public function __construct(
         private readonly CelebrityQuotesManager $celebrityQuotesManager,
-        private readonly CacheInterface $cache,
+        private readonly CacheService $cacheService,
     ) {
     }
 
@@ -21,7 +20,7 @@ class QuoteService
      */
     public function fetchFiveQuotes(): Collection
     {
-        return $this->cache->rememberForever(self::QUOTE_SERVER_CACHE_KEY, function () {
+        return $this->cacheService->rememberForever(self::QUOTE_SERVER_CACHE_KEY, function () {
             $quotes = collect();
 
             for($i = 1; $i <= 5; $i++) {
@@ -34,7 +33,7 @@ class QuoteService
 
     public function clearCache(): void
     {
-        $this->cache->forget(self::QUOTE_SERVER_CACHE_KEY);
+        $this->cacheService->forget(self::QUOTE_SERVER_CACHE_KEY);
     }
 
     /**
