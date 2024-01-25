@@ -58,3 +58,5 @@ Replace `{userId}` with the id of the user.
 Once the docs have been created, visit them by visiting:
 Replace {port} with the APP_PORT value in `.env`
 `http://localhost:{port}/api/documentation#/default`
+
+If you haven't used swagger docs before, click on the "Authorize" button ad add the token in the modal.
