@@ -15,6 +15,10 @@ use OpenApi\Attributes as OA;
             property: 'data',
             description: 'Array of all quotes',
             type: 'array',
+            items: new OA\Items(
+                type: 'string',
+                example: 'We all self-conscious. I\'m just the first to admit it.',
+            )
         ),
     ],
     type: 'object'
