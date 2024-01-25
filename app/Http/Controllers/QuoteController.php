@@ -18,6 +18,9 @@ class QuoteController extends Controller
     #[OA\Get(
         path: "/api/quotes",
         summary: "List five quotes",
+        security: [
+            [ 'bearerAuth' => [] ]
+        ],
         responses: [
             new OA\Response(
                 response: Response::HTTP_OK,
@@ -50,6 +53,9 @@ class QuoteController extends Controller
     #[OA\Put(
         path: "/api/quotes",
         summary: "Get a new list of five quotes",
+        security: [
+            [ 'bearerAuth' => [] ]
+        ],
         responses: [
             new OA\Response(
                 response: Response::HTTP_OK,
@@ -78,6 +84,9 @@ class QuoteController extends Controller
     #[OA\Delete(
         path: "/api/quotes",
         summary: "Clear current quotes",
+        security: [
+            [ 'bearerAuth' => [] ]
+        ],
         responses: [
             new OA\Response(
                 response: Response::HTTP_NO_CONTENT,
